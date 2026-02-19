@@ -75,6 +75,6 @@ describe('suit', () => {
         expect(text).to.contain('Invalid')
       });
     
-    })
+  })
 
 });

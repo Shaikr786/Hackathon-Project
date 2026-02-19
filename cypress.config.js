@@ -3,6 +3,20 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   allowCypressEnv: false,
 
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true,
+    embedScreenshots: true,
+    inlineAssets: true,
+    
+  },
+  
+  video: true,
+  screenshotOnRunFailure: true,
+
   e2e: {
     baseUrl: 'https://www.zigwheels.com',
     viewportWidth: 1280, 
@@ -16,17 +30,6 @@ module.exports = defineConfig({
     },
   },
 
-  reporter: 'mochawesome',
-  reporterOptions: {
-    reportDir: 'cypress/reports',
-    overwrite: false,
-    html: true,
-    json: true,
-    
-  video: true,
-  screenshotOnRunFailure: true
-  },
-
-
-
+  
+  
 });
