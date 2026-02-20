@@ -53,28 +53,22 @@ describe('suit', () => {
   });
 
   // Test case 2: List all popular car models available in Chennai
-  it('List all popular Car models available in Chennai',{ tags: '@cars' }, function() {
+  it.only('List all popular Car models available in Chennai',{ tags: '@cars' }, function() {
       
       // Open "Used Cars" page
       cars.openUsedCars(); 
 
       // Select city from fixture data
       cars.selectCity(this.data.city);
- 
-      // Loop through each car card
-      cars.getCarCards().each((_, index) => { 
 
-        // For each card, find car name and price
-        cars.getCarCards().eq(index).find('.pl-30.zw-sr-paddingLeft').then(($el) => {
+       // // Loop through each car card and log the title and price
+      cars.getCarCards().each(($card, index) => {
 
-            const title = $el.find('.fnt-22.zm-cmn-colorBlack.n.zw-sr-headingPadding.clickGtm.saveslotno').text().trim(); 
-            const price = $el.find('.zw-cmn-price.n.pull-left.mt-3').text().trim(); 
+        const title = $card.find('.fnt-22.zm-cmn-colorBlack.n.zw-sr-headingPadding.clickGtm.saveslotno').text().trim();
+        const price = $card.find('.zw-cmn-price.n.pull-left.mt-3').text().trim();
 
-            // Log car details
-            cy.log(`CAR NAME: ${title} - ${price}`); 
-
-        }); 
-    }); 
+        cy.log(`CAR ${index + 1}: ${title} - ${price}`);
+      });
   });
 
   // // Test case 3: Give invalid details & capture the error message
@@ -97,6 +91,7 @@ describe('suit', () => {
 
     // Capture error message and check if it contains "Invalid"
     contact.captureError().then(text => { 
+
       cy.log(`Dataset ${index + 1} - Error Text: ${text}`); 
 
       // Assert error message
