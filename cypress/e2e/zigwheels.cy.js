@@ -78,7 +78,7 @@ describe('suit', () => {
   });
 
   // // Test case 3: Give invalid details & capture the error message
-  it.only("give invalid details & capture the error message",{ tags: '@capture' }, function () {
+  it("give invalid details & capture the error message",{ tags: '@capture' }, function () {
 
   // Loop through each set of form data
   this.data.formData.forEach((formSet, index) => {
