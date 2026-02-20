@@ -1,12 +1,23 @@
 {
     "brandName": "Royal Enfield",
     "city": "Chennai", 
-    "formData": { 
-        "message": "abcd", 
-        "firstName": "chitranshu", 
-        "lastName": "saini", 
-        "email": "chitranshusaini8", 
-        "mobile": "9664131458" 
-    }
     
+  "formData": [
+    {
+      "message": "abcd",
+      "firstName": "chitranshu",
+      "lastName": "saini",
+      "email": "chitranshusaini8",
+      "mobile": "9664131458"
+    },
+    {
+      "message": "xyz",
+      "firstName": "test",
+      "lastName": "user",
+      "email": "test@gmail.com",
+      "mobile": "12345"
+    }
+  ]
 }
+
+    
